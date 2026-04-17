@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="turtle_controller3" exec="path_generator"   name="path_generator"   output="screen"/>
+  <node pkg="turtle_controller3" exec="turtle_odometry"  name="turtle_odometry"  output="screen"/>
+  <node pkg="turtle_controller3" exec="closeloop"        name="closeloop"        output="screen"/>
+
+</launch>
