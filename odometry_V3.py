@@ -11,7 +11,7 @@ class TurtleOdometry(Node):
 		super().__init__("odometry_node")
 		self.get_logger().info("Robot pose estimated by odometry")
 		#Robot parameters for puzzlebot
-		self.r = 0.05
+		self.r = 0.052
 		self.L = 0.18
 		self.v = 0.0
 		self.w = 0.0
