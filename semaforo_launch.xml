@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="semaforo" exec="path_generator"   name="path_generator"   output="screen"/>
+  <node pkg="semaforo" exec="odometry"  name="odometry"  output="screen"/>
+  <node pkg="semaforo" exec="closeloop"        name="closeloop"        output="screen"/>
+  <node pkg="semaforo" exec="TrafficDecision"  name="TrafficDecision"        output="screen"/>
+  <node pkg="semaforo" exec="colorDetection"  name="colorDetection"        output="screen"/>
+
+</launch>
