@@ -9,14 +9,14 @@ class TurtleController(Node):
         super().__init__("turtle_close_loop_controller")
         self.get_logger().info("Controlador de Lazo Cerrado Iniciado")
         
-        # 1. Tópico correcto para Puzzlebot
+        # Tópico correcto para Puzzlebot
         self.pub = self.create_publisher(Twist, "/cmd_vel_raw", 1)
         self.create_subscription(Pose, "/odom", self.odom_callback, 1)
         self.create_subscription(Pose, "/next_point", self.target_callback, 1)
         
         self.create_timer(0.02, self.state_machine)
 
-        # Parámetros para el reto de 2m
+        # Parámetros 
         self.v_limit = 0.4  
         self.Kw = 1.2
         self.Kv = 0.5
