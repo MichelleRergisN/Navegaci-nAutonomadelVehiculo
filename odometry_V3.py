@@ -10,16 +10,16 @@ class TurtleOdometry(Node):
 	def __init__(self):
 		super().__init__("odometry_node")
 		self.get_logger().info("Robot pose estimated by odometry")
-		#Robot parameters for puzzlebot
-		self.r = 0.052
-		self.L = 0.18
+		#Puzzlebot parametros
+		self.r = 0.052 #radio de las llantas
+		self.L = 0.18 #distancia entre las llantas
 		self.v = 0.0
 		self.w = 0.0
 		self.wR = 0.0
 		self.wL = 0.0
 		self.rate = 100.0
-		#self.x, self.y, self.theta = 5.5, 5.5, 0.0   #If turtlesim
-		self.x, self.y, self.theta = 0.0, 0.0, 0.0   #If puzzlebot
+		#self.x, self.y, self.theta = 5.5, 5.5, 0.0   #Para turtlesim
+		self.x, self.y, self.theta = 0.0, 0.0, 0.0   #Para puzzlebot
 		self.pub = self.create_publisher(Pose, "/odom", 1)
 		self.timer = self.create_timer(1.0/self.rate, self.callback_odometry)
 
