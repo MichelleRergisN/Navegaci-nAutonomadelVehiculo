@@ -32,17 +32,17 @@ class TrafficDecisionNode(Node):
     def control_loop(self):
         output = Twist()
 
-        # 🔴 ROJO → STOP
+        # ROJO → STOP
         if self.traffic_state == "RED":
             output.linear.x = 0.0
             output.angular.z = 0.0
 
-        # 🟡 AMARILLO → REDUCE VELOCIDAD
+        # AMARILLO → REDUCE VELOCIDAD
         elif self.traffic_state == "YELLOW":
             output.linear.x = 0.5 * self.current_cmd.linear.x
             output.angular.z = self.current_cmd.angular.z
 
-        # 🟢 VERDE → NORMAL
+        # VERDE → NORMAL
         else:
             output = self.current_cmd
 
