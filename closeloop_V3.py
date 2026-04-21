@@ -9,14 +9,14 @@ class TurtleController(Node):
         super().__init__("turtle_close_loop_controller")
         self.get_logger().info("Controlador de Lazo Cerrado Iniciado")
         
-        # 1. Tópico correcto para Puzzlebot
+        # Tópico correcto para Puzzlebot
         self.pub = self.create_publisher(Twist, "/cmd_vel", 1)
         self.create_subscription(Pose, "/odom", self.odom_callback, 1)
         self.create_subscription(Pose, "/next_point", self.target_callback, 1)
         
         self.create_timer(0.02, self.state_machine)
 
-        # Parámetros para el reto de 2m
+        # Parámetros 
         self.v_limit = 0.4  
         self.Kw = 1.2
         self.Kv = 0.5
@@ -25,7 +25,7 @@ class TurtleController(Node):
         self.state = "stop"
         self.end_of_accion = False
         self.got_target = False
-        # Inicializar en 0.0 para el reto
+        # Inicializar en 0.0 
         self.x, self.y, self.theta = 0.0, 0.0, 0.0 
 
     def odom_callback(self, msg):
@@ -50,7 +50,7 @@ class TurtleController(Node):
             if self.end_of_accion:
                 self.state = "stop"
                 self.end_of_accion = False
-                self.got_target = False # Ahora sí, pedimos el siguiente punto
+                self.got_target = False # Pedimos el siguiente punto
         
         elif self.state == "stop":
             self.stop_robot()
